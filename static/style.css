@@ -1,0 +1,133 @@
+* {
+    font-family: "Poppins";
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    background: #111315;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.navbar {
+    top: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 1000;
+    display: flex;
+    position: fixed;
+    padding-left: 10px;
+    align-items: center;
+    background: #1a1c1e;
+    
+}
+
+.logo {
+    height: 40px;
+}
+
+.container {
+    width: 80%;
+}
+
+.head {
+    width: 100%;
+    height: 35px;
+    display: flex;
+    justify-content: end;
+    background: #272a30;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#inputText {
+    width:100%;
+    resize: none;
+    padding: 10px;
+    outline: none;
+    font-size: 18px;
+    color: #757575;
+    line-height: 30px;
+    background-color: #1a1c1e;
+    border: 0px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #808080;
+    border-radius: 5px;
+    margin-right: 12.5px;
+    background-color: #007bff00;
+}
+
+button:hover {
+    color: #ababab;
+}
+
+#snackbar {
+    left: 50%;
+    color: #d5d5d5;
+    bottom: 30px;
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #272a30;
+    text-align: center;
+    border-radius: 5px;
+    padding: 12px;
+    position: fixed;
+    transform: translateX(-50%);
+    font-size: 16px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s, bottom 0.5s ease-in-out;
+}
+
+#snackbar.show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 50px;
+}
+
+.text-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.input-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 28, 30, 0.75); /* semi-dark overlay */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    z-index: 10;
+}
+
+.spinner {
+    border: 6px solid #1a1c1e;
+    border-top: 6px solid #d5d5d5;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
