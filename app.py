@@ -7,29 +7,10 @@ app = Flask(__name__)
 # Initialize Gradio client with your Hugging Face Space
 client = Client("abinash28/PurifyT5")
 
-# Function to split text on punctuation
-def split_sentences(text):
-    sentences = re.split(r'(?<=[.!?])\s+', text)
-    return sentences
 
 def replace_explicit_words(text):
-    sentences = split_sentences(text)
-    sanitized_sentences = []
-
-    for sentence in sentences:
-        if sentence.strip():
-            try:
-                # Call Gradio Space endpoint
-                output = client.predict(
-                    text=sentence.strip(),
-                    api_name="/predict"
-                )
-                sanitized_sentences.append(output)
-            except Exception as e:
-                sanitized_sentences.append("[Error]")
-        else:
-            sanitized_sentences.append("")
-    return ' '.join(sanitized_sentences)
+    output = client.predict(text=text,api_name="/predict")
+    return output
 
 @app.route('/')
 def home():
